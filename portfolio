@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Tabia Khan - Software Engineering Student & Full-Stack Developer Portfolio">
+    <title>Tabia Khan | Software Engineer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #111827;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2a5298;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #1e3c72;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0f2b4f;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #1e3c72;
+            color: #1e3c72;
+        }
+
+        .btn-outline:hover {
+            background-color: #1e3c72;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #2a5298;
+            border-radius: 2px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #f0f4fa 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .hero-text .highlight {
+            color: #2a5298;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: #4b5563;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #eef2f6;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: #2a5298;
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #4b5563;
+            margin-bottom: 16px;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tech-tag {
+            background: #eef2ff;
+            color: #1e3c72;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Skills */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-badge {
+            background: white;
+            border: 1px solid #d1d5db;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .skill-badge:hover {
+            background: #1e3c72;
+            color: white;
+            border-color: #1e3c72;
+        }
+
+        /* Experience & Education */
+        .card-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border-left: 5px solid #2a5298;
+        }
+
+        .info-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .info-card .subtitle {
+            color: #2a5298;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            background: white;
+            padding: 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: #2a5298;
+            width: 32px;
+        }
+
+        .contact-item a {
+            color: #111827;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #2a5298;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            .section-title {
+                font-size: 1.75rem;
+            }
+            section {
+                padding: 48px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <div class="logo">Tabia Khan</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hi, I'm <span class="highlight">Tabia Khan</span></h1>
+                    <p>Software Engineering Student | Full-Stack Developer | Content Writer</p>
+                    <p>Passionate about building robust web applications and solving real-world problems through clean, efficient code.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn">View Projects</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                    </div>
+                </div>
+                <div style="font-size: 8rem; color: #e0e7ff;">👩‍💻</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p style="font-size: 1.1rem; max-width: 800px; margin-bottom: 20px;">I am a second-year Software Engineering student at UIT University with a strong passion for technology and software development. I am highly motivated, hardworking, and a fast learner who enjoys exploring different areas of tech — including frontend, backend, database management, and full-stack development.</p>
+            <p style="font-size: 1.1rem; max-width: 800px;">Alongside my studies, I have been working as a Content Writer for 3 years, which has sharpened my communication, creativity, research, and professional writing skills.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Pharmacy Inventory System -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-tablets"></i></div>
+                    <h3>Pharmacy Inventory System</h3>
+                    <p>Full-stack pharmacy management system to track medicines, stock levels, and inventory records efficiently and with multiple roles such as pharmacist, cashier and moreover</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <!-- Sales Management System (Java) -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fab fa-java"></i></div>
+                    <h3>Sales Management System (Java)</h3>
+                    <p> Desktop-based sales system handling sales records, transactions, and business data using core Java concepts with 2 roles.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Swing/AWT</span>
+                        <span class="tech-tag">OOP</span>
+                    </div>
+                </div>
+
+                <!-- Sales Management System (Web) -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Sales Management System (Web)</h3>
+                    <p>Web-based sales app with Node.js backend, SQLite database, and interactive frontend for seamless data flow.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <!-- Library Management System -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-book"></i></div>
+                    <h3>Library Management System</h3>
+                    <p>System to manage book borrowing, returns, and cataloging with user-friendly interface and database integration with 2 roles.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">SQLite</span>
+			<span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <!-- Coffee Shop Type System -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-mug-hot"></i></div>
+                    <h3>Coffee Shop POS System</h3>
+                    <p>Point-of-sale style system for coffee shops — order management, billing, and inventory tracking.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <!-- Rock Paper Scissors -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-hand-peace"></i></div>
+                    <h3>Rock Paper Scissors Game</h3>
+                    <p>Interactive game demonstrating logical decision-making and user interaction using core programming fundamentals.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Website -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce Website</h3>
+                    <p>Basic e-commerce platform simulating online shopping with product display and frontend interaction.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML/CSS/JS</span>
+                        <span class="tech-tag">Python</span>
+			<span class="tech-tag">SQLite</span>
+                    </div>
+                </div>
+
+                <!-- AI Routing Project -->
+                <div class="project-card">
+                    <div class="project-icon"><i class="fas fa-route"></i></div>
+                    <h3>AI Routing (Distance Between Cities)</h3>
+                    <p>Routing-based project that calculates and analyzes distance between cities using search logic and basic AI concepts.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">AI Logic</span>
+                        <span class="tech-tag">Algorithms</span>
+			<span class="tech-tag">Python</span>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 32px; text-align: center;"><i class="fas fa-external-link-alt"></i> All project demos & details available on <strong>LinkedIn</strong><strong></strong>.</p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical & Professional Skills</h2>
+            <div class="skills-container">
+                <span class="skill-badge">Frontend Development</span>
+                <span class="skill-badge">Backend Development</span>
+                <span class="skill-badge">Database Management</span>
+                <span class="skill-badge">Full-Stack Development</span>
+                <span class="skill-badge">Content Writing</span>
+                <span class="skill-badge">Problem Solving</span>
+                <span class="skill-badge">Fast Learning & Adaptability</span>
+                <span class="skill-badge">Communication Skills</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Education & Experience</h2>
+            <div class="card-list">
+                <div class="info-card">
+                    <h3>🎓 Bachelor's in Software Engineering</h3>
+                    <div class="subtitle">UIT University | Second-Year Student</div>
+                    <p>Relevant coursework: Data Structures, Web Development, Database Systems, OOP, Software Design.</p>
+                </div>
+                <div class="info-card">
+                    <h3>✍️ Content Writer</h3>
+                    <div class="subtitle">3 Years of Professional Experience</div>
+                    <p>Worked on diverse content writing projects — technical articles, blogs, web copy. Strengthened research, creativity, and communication skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:tabiazehra07@gmail.com">tabiazehra07@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="#" target="_blank">github.com/tabiakhan</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="#" target="_blank">linkedin.com/in/Tabia Khan</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Karachi, Pakistan</span>
+                </div>
+            </div>
+            <p style="margin-top: 24px; text-align: center;">📌 <em>All project demo links and additional details are available on my LinkedIn profile.</em></p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2025 tabiakhan — Software Engineering Student & Full-Stack Developer. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Smooth scroll behavior -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
